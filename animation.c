@@ -2,8 +2,8 @@
 #include <math.h>
 #include <stdlib.h>
 const double TWO_PI = 6.2831853;
-GLsizei winWidth = 500, winHeight = 500; // Initial display window size.
-GLuint regHex; // Define name for display list.
+GLsizei winWidth = 500, winHeight = 500; 
+GLuint regHex; 
 static GLfloat rotTheta = 0.0;
 struct scrPt
 {
@@ -21,11 +21,7 @@ static void init (void)
 	struct scrPt hexVertex;
 	GLdouble hexTheta;
 	GLint k;
-	glClearColor (1.0, 1.0, 1.0, 0.0);
-	/* Set up a display list for a red regular hexagon.
-	* Vertices for the hexagon are six equally spaced
-	* points around the circumference of a circle.
-	*/
+	glClearColor (1.0, 1.0, 1.0, 0.0);	
 	regHex = glGenLists (1);
 	glNewList (regHex, GL_COMPILE);
 	glColor3f (1.0, 0.0, 0.0);
@@ -72,11 +68,11 @@ void winReshapeFcn (GLint newWidth, GLint newHeight)
 void mouseFcn (GLint button, GLint action, GLint x, GLint y)
 {
 	switch (button) {
-		case GLUT_LEFT_BUTTON: // Start the rotation.
+		case GLUT_LEFT_BUTTON: 
 			if (action == GLUT_DOWN)
 				glutIdleFunc (rotateHex);
 			break;
-		case GLUT_RIGHT_BUTTON: // Stop the rotation.
+		case GLUT_RIGHT_BUTTON: 
 			if (action == GLUT_DOWN)
 				glutIdleFunc (NULL);
 			break;
